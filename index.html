@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="myhead">To Do List</h1>
+        </div>
+        <hr>
+        <div id="add-task" class="section">
+            <label for="new-task" id="additem"><h3 class="head">Add New Task &#9997;</h3></label>
+            <input id="new-task" type="text" placeholder="Enter new task...">
+            <button>Add</button>
+        </div>
+        <hr>
+        <h3 class="head task-heading" id="head">Task List &#10024;</h3>
+        <ul id="incomplete-tasks" class="task-list section">
+            <li>
+                <input type="checkbox">
+                <label>Completing Assignments</label>
+                <button class="edit">Edit</button>
+                <button class="delete">Delete</button>
+            </li>
+            <li class="editMode">
+                <input type="checkbox">
+                <label>GYM Workout</label>
+                <button class="edit">Edit</button>
+                <button class="delete">Delete</button>
+            </li>
+        </ul>
+        <hr>
+        <h3 class="head completed-task-heading" id="head">Completed Tasks &#9989;</h3>
+        <ul id="completed-tasks" class="task-list section">
+            <li>
+                <input type="checkbox" checked>
+                <label>See the Doctor</label>
+                <button class="edit">Edit</button>
+                <button class="delete">Delete</button>
+            </li>
+        </ul>
+        <hr>
+        <div id="reset-section" class="section">
+            <button id="reset">Reset</button>
+        </div>
+
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
