@@ -1,7 +1,7 @@
 
 # To Do List
 
-This project is a user-friendly To-Do List web application created using HTML, CSS, and JavaScript. It facilitates seamless task management and organization, enhancing productivity and user experience. 
+This project is a user-friendly To-Do List web application created using HTML, CSS, and JavaScript. It facilitates seamless task management and organization, enhancing productivity. 
 
 
 ## Acknowledgements
