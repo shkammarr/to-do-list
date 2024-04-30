@@ -1,4 +1,12 @@
 /* Container */
+body {
+    background-image: url('pixelcut-export\ \(1\).jpeg'); /* Replace 'your-image-path.jpg' with the path to your image */
+    background-size: cover; /* Cover the entire body */
+    background-position: center; /* Center the image */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+}
+
 .container {
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -7,6 +15,8 @@
     width: 460px;
     padding: 10px;
     margin: 0 auto; /* Center the container */
+    margin-left: 15%;
+    margin-top: 1%;
 }
 
 .head {
