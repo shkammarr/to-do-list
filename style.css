@@ -1,20 +1,20 @@
 /* Container */
 body {
-    background-image: url('pixelcut-export\ \(1\).jpeg'); /* Replace 'your-image-path.jpg' with the path to your image */
-    background-size: cover; /* Cover the entire body */
-    background-position: center; /* Center the image */
-    margin: 0; /* Remove default body margin */
-    padding: 0; /* Remove default body padding */
+    background-image: url('pixelcut-export\ \(1\).jpeg'); 
+    background-size: cover; /* Cover the entire body 
+    background-position: center; /* Center the image 
+    margin: 0; 
+    padding: 0; 
 }
 
 .container {
     border: 2px solid #ccc;
     border-radius: 10px;
-    background-color: #e6f2ff; /* Changed background color */
+    background-color: #e6f2ff; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 460px;
     padding: 10px;
-    margin: 0 auto; /* Center the container */
+    margin: 0 auto; 
     margin-left: 15%;
     margin-top: 1%;
 }
@@ -31,9 +31,9 @@ body {
     position: relative;
     text-align: center;
     border: 2px solid #333;
-    border-radius: 10px; /* To make the border square */
+    border-radius: 10px;
     width: fit-content;
-    padding: 10px 10px; /* Adjust padding as needed */
+    padding: 10px 10px; 
     animation: borderBounce 2s infinite alternate, colorChange 3s infinite alternate;
 }
 
