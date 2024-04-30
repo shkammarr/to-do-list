@@ -1,8 +1,8 @@
 /* Container */
 body {
-    background-image: url('https://github.com/shkammarr/to-do-list/blob/main/bgimage.jpeg'); 
-    background-size: cover; /* Cover the entire body 
-    background-position: center; /* Center the image 
+    background-image: url('bgimage.jpg'); 
+    background-size: cover; 
+    background-position: center; 
     margin: 0; 
     padding: 0; 
 }
