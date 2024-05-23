@@ -42,21 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
         taskInput.value = ""; // Clear input field
     };
 
-    var editTask = function () {
-        var listItem = this.parentNode;
-        var editInput = document.createElement("input");
-        editInput.type = "text";
-        editInput.value = listItem.querySelector("label").innerText;
-        listItem.insertBefore(editInput, listItem.firstChild);
-
-        var containsClass = listItem.classList.contains("editMode");
-        if (containsClass) {
-            listItem.querySelector("label").innerText = editInput.value;
-        }
-
-        listItem.classList.toggle("editMode");
-    };
-
     var deleteTask = function () {
         var listItem = this.parentNode;
         var ul = listItem.parentNode;
