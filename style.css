@@ -60,7 +60,6 @@ body {
     }
 }
 
-
 /* Header Styling */
 .header {
     text-align: center;
@@ -79,7 +78,6 @@ body {
     background-color: whitesmoke;
     border-radius: 5px;
     padding: 5px 10px; /* Reduced padding */
-    margin: px;
     font-size: 16px;
     width: calc(70% - 50px); /* Adjusted width */
 }
@@ -98,20 +96,16 @@ button:hover {
     background-color: #45a049;
     transform: scale(1.05); /* Add slight scale on hover */
 }
-#new-task {
-    background-color: #fff;
-    border-radius: 5px;
-    margin-top: 2px;
-    width: 78.5%;
-}
+
 .head {
     font-size: 160%;
     color: #070707;
 }
-#additem {
-   margin-top: 0px
 
+#additem {
+    margin-top: 0px;
 }
+
 /* Task Styling */
 .task-list {
     list-style: none;
@@ -146,8 +140,6 @@ button:hover {
 .delete:hover {
     background-color: #da190b;
 }
-
-/* border */
 
 /* Reset Button */
 #reset-section {
