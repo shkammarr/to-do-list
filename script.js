@@ -1,15 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
     var taskInput = document.getElementById("new-task");
-    var addButton = document.querySelector("button");
     var addButton = document.querySelector("#add-task button");
     var incompleteTaskHolder = document.getElementById("incomplete-tasks");
     var completedTasksHolder = document.getElementById("completed-tasks");
     var resetButton = document.getElementById("reset");
-@@ -29,23 +29,29 @@ document.addEventListener("DOMContentLoaded", function () {
+
+    var createNewTaskElement = function (taskString) {
+        var listItem = document.createElement("li");
+
+        var checkBox = document.createElement("input");
+        checkBox.type = "checkbox";
+
+        var label = document.createElement("label");
+        label.innerText = taskString;
+
+        var deleteButton = document.createElement("button");
+        deleteButton.innerText = "Delete";
+        deleteButton.className = "delete";
+
+        listItem.appendChild(checkBox);
+        listItem.appendChild(label);
+        listItem.appendChild(deleteButton);
+
+        return listItem;
     };
 
     var addTask = function () {
-        var listItem = createNewTaskElement(taskInput.value);
         var taskContent = taskInput.value.trim(); // Trim to remove whitespace
         if (taskContent === "") {
             alert("Please enter a task."); // Alert if input is empty
@@ -20,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
         incompleteTaskHolder.appendChild(listItem);
         bindTaskEvents(listItem, taskCompleted);
 
-        taskInput.value = "";
         taskInput.value = ""; // Clear input field
     };
 
@@ -29,35 +44,45 @@ document.addEventListener("DOMContentLoaded", function () {
         var editInput = listItem.querySelector('input[type=text]');
         var label = listItem.querySelector("label");
         var containsClass = listItem.classList.contains("editMode");
-        var editInput = document.createElement("input");
-        editInput.type = "text";
-        editInput.value = listItem.querySelector("label").innerText;
-        listItem.insertBefore(editInput, listItem.firstChild);
 
-        var containsClass = listItem.classList.contains("editMode");
         if (containsClass) {
             label.innerText = editInput.value;
+            listItem.removeChild(editInput);
         } else {
+            editInput = document.createElement("input");
+            editInput.type = "text";
             editInput.value = label.innerText;
-            listItem.querySelector("label").innerText = editInput.value;
+            listItem.insertBefore(editInput, label);
         }
 
         listItem.classList.toggle("editMode");
-@@ -71,27 +77,29 @@ document.addEventListener("DOMContentLoaded", function () {
+    };
+
+    var deleteTask = function () {
+        var listItem = this.parentNode;
+        listItem.parentNode.removeChild(listItem);
+    };
+
+    var taskCompleted = function () {
+        var listItem = this.parentNode;
+        completedTasksHolder.appendChild(listItem);
+        bindTaskEvents(listItem, taskIncomplete);
+    };
+
+    var taskIncomplete = function () {
+        var listItem = this.parentNode;
+        incompleteTaskHolder.appendChild(listItem);
+        bindTaskEvents(listItem, taskCompleted);
+    };
 
     var bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
         var checkBox = taskListItem.querySelector("input[type=checkbox]");
-        var editButton = taskListItem.querySelector("button.edit");
         var deleteButton = taskListItem.querySelector("button.delete");
-        var editButton = taskListItem.querySelector(".edit");
-        var deleteButton = taskListItem.querySelector(".delete");
 
-        editButton.onclick = editTask;
-        deleteButton.onclick = deleteTask;
         checkBox.onchange = checkBoxEventHandler;
+        deleteButton.onclick = deleteTask;
     };
 
-    addButton.onclick = addTask;
     addButton.addEventListener("click", addTask);
 
     resetButton.onclick = function () {
@@ -65,20 +90,13 @@ document.addEventListener("DOMContentLoaded", function () {
         completedTasksHolder.innerHTML = "";
     };
 
-    for (var i = 0; i < incompleteTaskHolder.children.length; i++) {
-        bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
-    }
-    // Binding existing tasks
     var incompleteTasks = incompleteTaskHolder.querySelectorAll("li");
-    incompleteTasks.forEach(function(task) {
+    incompleteTasks.forEach(function (task) {
         bindTaskEvents(task, taskCompleted);
     });
 
-    for (var i = 0; i < completedTasksHolder.children.length; i++) {
-        bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
-    }
     var completedTasks = completedTasksHolder.querySelectorAll("li");
-    completedTasks.forEach(function(task) {
+    completedTasks.forEach(function (task) {
         bindTaskEvents(task, taskIncomplete);
     });
 });
